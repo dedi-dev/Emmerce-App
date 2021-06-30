@@ -1,7 +1,9 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import MyNavbar from "./components/MyNavbar";
 
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
@@ -15,10 +17,8 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
+        <MyNavbar />
         <Switch>
-          {/* // <div>
-      //   <h1>App JS</h1>
-      // </div> */}
           <Route component={Login} path="/login" />
           <Route component={Register} path="/register" />
           <Route component={Admin} path="/admin" />
