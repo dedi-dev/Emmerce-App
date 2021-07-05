@@ -1,5 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import { API_URL } from "../../constants/API";
+import { registerUser } from "../../redux/actions/user";
+import { connect } from "react-redux";
 
 class Register extends React.Component {
   state = {
@@ -17,9 +21,23 @@ class Register extends React.Component {
   };
 
   registerHandler = () => {
-    alert(
-      `Fullname: ${this.state.fullname}\nUser Name: ${this.state.username}\nEmail: ${this.state.email}\nPassword: ${this.state.password}`
-    );
+    // alert(
+    //   `Fullname: ${this.state.fullname}\nUser Name: ${this.state.username}\nEmail: ${this.state.email}\nPassword: ${this.state.password}`
+    // );
+    const { fullname, username, email, password } = this.state;
+    Axios.post(`${API_URL}/users`, {
+      fullname,
+      username,
+      email,
+      password,
+      role: "user",
+    })
+      .then(() => {
+        alert("Berhasil mendaftarkan user!");
+      })
+      .catch(() => {
+        alert("Gagal mendaftarkan user!");
+      });
   };
 
   render() {
@@ -40,28 +58,28 @@ class Register extends React.Component {
               <div className="card-body">
                 <h5 className="font-weight-bold mb-3">Register</h5>
                 <input
-                  onClick={this.inputHandler}
+                  onChange={this.inputHandler}
                   name="fullname"
                   placeholder="Full Name"
                   type="text"
                   className="form-control my-2"
                 />
                 <input
-                  onClick={this.inputHandler}
+                  onChange={this.inputHandler}
                   name="username"
                   placeholder="User Name"
                   type="text"
                   className="form-control my-2"
                 />
                 <input
-                  onClick={this.inputHandler}
+                  onChange={this.inputHandler}
                   name="email"
                   placeholder="Email"
                   type="text"
                   className="form-control my-2"
                 />
                 <input
-                  onClick={this.inputHandler}
+                  onChange={this.inputHandler}
                   name="password"
                   placeholder="Password"
                   type="password"
@@ -69,7 +87,7 @@ class Register extends React.Component {
                 />
                 <div className="d-flex flex-row justify-content-between align-item-center">
                   <button
-                    onClick={this.registerHandler}
+                    onClick={() => this.props.registerUser(this.state)}
                     className="btn btn-primary mt-2"
                   >
                     Register
@@ -85,4 +103,12 @@ class Register extends React.Component {
   }
 }
 
-export default Register;
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = {
+  registerUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

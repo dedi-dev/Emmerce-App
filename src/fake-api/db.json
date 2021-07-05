@@ -1,5 +1,44 @@
 {
-  "users": [],
+  "users": [
+    {
+      "fullname": "",
+      "username": "",
+      "email": "",
+      "password": "",
+      "id": 1
+    },
+    {
+      "fullname": "Dedi",
+      "username": "edot",
+      "email": "email.com",
+      "password": "Edhot111",
+      "id": 2
+    },
+    {
+      "fullname": "Aca",
+      "username": "Acut",
+      "email": "acut@mail.com",
+      "password": "password",
+      "role": "user",
+      "id": 3
+    },
+    {
+      "fullname": "Joshua W",
+      "username": "josh",
+      "email": "josh@mail.com",
+      "password": "1234",
+      "role": "user",
+      "id": 4
+    },
+    {
+      "fullname": "Jane Doe",
+      "username": "Jane",
+      "email": "Jane@mail.com",
+      "password": "password",
+      "role": "user",
+      "id": 5
+    }
+  ],
   "transaction": [],
   "products": [],
   "carts": []
