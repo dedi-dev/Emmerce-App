@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/actions/user";
 
@@ -17,6 +17,9 @@ class Login extends React.Component {
   };
 
   render() {
+    if (this.props.userGlobal.id) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="container">
         <div className="row">
@@ -30,6 +33,11 @@ class Login extends React.Component {
         </div>
         <div className="row mt-5">
           <div className="col-4 offset-4">
+            {this.props.userGlobal.errMsg ? (
+              <div className="alert alert-danger">
+                {this.props.userGlobal.errMsg}
+              </div>
+            ) : null}
             <div className="card">
               <div className="card-body">
                 <h5 className="font-weight-bold mb-3">Log in</h5>
@@ -65,8 +73,10 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = () => {
-  return {};
+const mapStateToProps = (state) => {
+  return {
+    userGlobal: state.user,
+  };
 };
 
 const mapDispatchToProps = {
