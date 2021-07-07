@@ -40,6 +40,23 @@
     }
   ],
   "transaction": [],
-  "products": [],
+  "products": [
+    {
+      "id": 1,
+      "productName": "Kaos Hitam Polos",
+      "price": 25000,
+      "productImage": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F83%2Fe1%2F83e1bf22cd2015bc509296ef1e2d5a4d29b70b7a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B4%5D&call=url[file:/product/main]",
+      "description": "Ini barang bagus lho.",
+      "category": "T-shirt"
+    },
+    {
+      "id": 2,
+      "productName": "Kaos Putih Bagus",
+      "price": 30000,
+      "productImage": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F71%2Ff4%2F71f4f60422b3284c9727d91905ace2624e7bc15d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+      "description": "Ini barang bagus banget lho.",
+      "category": "T-shirt"
+    }
+  ],
   "carts": []
 }
