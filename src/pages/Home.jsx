@@ -6,13 +6,18 @@ import { API_URL } from "../constants/API";
 class Home extends React.Component {
   state = {
     productList: [],
+    page: 1,
+    maxPage: 0,
+    itemPerPage: 5,
   };
 
   fetchProduct = () => {
     Axios.get(`${API_URL}/products`)
       .then((result) => {
-        alert("Berhasil");
-        this.setState({ productList: result.data });
+        this.setState({
+          productList: result.data,
+          maxPage: Math.ceil(result.data.length / this.state.itemPerPage),
+        });
       })
       .catch(() => {
         alert("Terjadi kesalahan di server");
@@ -20,9 +25,26 @@ class Home extends React.Component {
   };
 
   renderProducts = () => {
-    return this.state.productList.map((val) => {
+    const beginningIndex = (this.state.page - 1) * this.state.itemPerPage;
+    const currentData = this.state.productList.slice(
+      beginningIndex,
+      beginningIndex + this.state.itemPerPage
+    );
+    return currentData.map((val) => {
       return <ProductCard productData={val} />;
     });
+  };
+
+  nextPagehandler = () => {
+    if (this.state.page < this.state.maxPage) {
+      this.setState({ page: this.state.page + 1 });
+    }
+  };
+
+  prevPagehandler = () => {
+    if (this.state.page > 1) {
+      this.setState({ page: this.state.page - 1 });
+    }
   };
 
   componentDidMount() {
@@ -71,9 +93,23 @@ class Home extends React.Component {
             </div>
             <div className="mt-3">
               <div className="d-flex flex-row justify-content-between align-items-center">
-                <button className="btn btn-dark">{"<"}</button>
-                <div className="text-center">Page 1 of 8</div>
-                <button className="btn btn-dark">{">"}</button>
+                <button
+                  disabled={this.state.page === 1}
+                  onClick={this.prevPagehandler}
+                  className="btn btn-dark"
+                >
+                  {"<"}
+                </button>
+                <div className="text-center">
+                  Page {this.state.page} of {this.state.maxPage}
+                </div>
+                <button
+                  disabled={this.state.page === this.state.maxPage}
+                  onClick={this.nextPagehandler}
+                  className="btn btn-dark"
+                >
+                  {">"}
+                </button>
               </div>
             </div>
           </div>
