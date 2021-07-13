@@ -3,7 +3,6 @@ import {
   Navbar,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   NavbarBrand,
@@ -25,7 +24,7 @@ class MyNavbar extends React.Component {
             {this.props.userGlobal.username ? (
               <>
                 <NavItem>
-                  <NavbarText>
+                  <NavbarText className="navbar">
                     Hello, {this.props.userGlobal.username}
                   </NavbarText>
                 </NavItem>

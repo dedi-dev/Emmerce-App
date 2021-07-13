@@ -6,9 +6,12 @@ import { API_URL } from "../constants/API";
 class Home extends React.Component {
   state = {
     productList: [],
+    filteredProductList: [],
     page: 1,
     maxPage: 0,
     itemPerPage: 5,
+    searchProductName: "",
+    searchCategory: "",
   };
 
   fetchProduct = () => {
@@ -17,6 +20,7 @@ class Home extends React.Component {
         this.setState({
           productList: result.data,
           maxPage: Math.ceil(result.data.length / this.state.itemPerPage),
+          filteredProductList: result.data,
         });
       })
       .catch(() => {
@@ -26,7 +30,7 @@ class Home extends React.Component {
 
   renderProducts = () => {
     const beginningIndex = (this.state.page - 1) * this.state.itemPerPage;
-    const currentData = this.state.productList.slice(
+    const currentData = this.state.filteredProductList.slice(
       beginningIndex,
       beginningIndex + this.state.itemPerPage
     );
@@ -47,6 +51,28 @@ class Home extends React.Component {
     }
   };
 
+  inputSearchHandler = (event) => {
+    let name = event.target.name;
+    let value = event.target.value;
+    this.setState({ [name]: [value] });
+  };
+
+  btnSearchHandler = () => {
+    const filteredProductList = this.state.productList.filter((product) => {
+      return (
+        product.productName
+          .toLowerCase()
+          .includes(this.state.searchProductName) &&
+        product.category.includes(this.state.searchCategory)
+      );
+    });
+    this.setState({
+      filteredProductList,
+      maxPage: Math.ceil(filteredProductList.length / this.state.itemPerPage),
+      page: 1,
+    });
+  };
+
   componentDidMount() {
     this.fetchProduct();
   }
@@ -63,17 +89,28 @@ class Home extends React.Component {
               <div className="card-body">
                 <label htmlFor="searchProductName">Product Name</label>
                 <input
+                  onChange={this.inputSearchHandler}
                   type="text"
                   name="searchProductName"
                   className="form-control mb-3"
                 />
                 <label htmlFor="searchCategory">Product Category</label>
-                <select name="searchCategory" className="form-control">
+                <select
+                  name="searchCategory"
+                  onChange={this.inputSearchHandler}
+                  className="form-control"
+                >
                   <option value="">All Item</option>
-                  <option value="">T-shirt</option>
-                  <option value="">Pants</option>
-                  <option value="">Accesories</option>
+                  <option value="T-shirt">T-shirt</option>
+                  <option value="Pants">Pants</option>
+                  <option value="Accesories">Accesories</option>
                 </select>
+                <button
+                  className="btn btn-primary mt-2"
+                  onClick={this.btnSearchHandler}
+                >
+                  Search
+                </button>
               </div>
             </div>
             <div className="card mt-4">
