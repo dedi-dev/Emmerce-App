@@ -12,6 +12,7 @@ class Home extends React.Component {
     itemPerPage: 5,
     searchProductName: "",
     searchCategory: "",
+    sortBy: "",
   };
 
   fetchProduct = () => {
@@ -28,16 +29,70 @@ class Home extends React.Component {
       });
   };
 
-  renderProducts = () => {
+  renderProducts() {
     const beginningIndex = (this.state.page - 1) * this.state.itemPerPage;
-    const currentData = this.state.filteredProductList.slice(
+    let rawData = [...this.state.filteredProductList];
+
+    const compareString = (a, b) => {
+      if (a.productName < b.productName) {
+        return -1;
+      }
+      if (a.productName > b.productName) {
+        return 1;
+      }
+      return 0;
+    };
+
+    switch (this.state.sortBy.toString()) {
+      case "lowestPrice":
+        rawData.sort((a, b) => a.price - b.price);
+        break;
+      case "highestPrice":
+        rawData.sort((a, b) => b.price - a.price);
+        break;
+      case "az":
+        rawData.sort(compareString);
+        break;
+      case "za":
+        rawData.sort((a, b) => compareString(b, a));
+        break;
+      default:
+        rawData = [...this.state.filteredProductList];
+        break;
+    }
+    const currentData = rawData.slice(
       beginningIndex,
       beginningIndex + this.state.itemPerPage
     );
-    return currentData.map((val) => {
-      return <ProductCard productData={val} />;
+    return currentData.map((item, index) => {
+      return (
+        <div key={index}>
+          <ProductCard productData={item} />
+        </div>
+      );
     });
-  };
+  }
+
+  // renderProducts = () => {
+  //   const beginningIndex = (this.state.page - 1) * this.state.itemPerPage;
+  //   let rawData = [...this.state.filteredProductList];
+  //   switch (this.state.sortBy) {
+  //     case "lowestPrice":
+  //       rawData.sort((a, b) => a.index - b.index);
+  //       break;
+
+  //     default:
+  //       rawData = [...this.state.filteredProductList];
+  //       break;
+  //   }
+  //   const currentData = rawData.slice(
+  //     beginningIndex,
+  //     beginningIndex + this.state.itemPerPage
+  //   );
+  //   return currentData.map((val) => {
+  //     return <ProductCard productData={val} />;
+  //   });
+  // };
 
   nextPagehandler = () => {
     if (this.state.page < this.state.maxPage) {
@@ -51,7 +106,7 @@ class Home extends React.Component {
     }
   };
 
-  inputSearchHandler = (event) => {
+  inputHandler = (event) => {
     let name = event.target.name;
     let value = event.target.value;
     this.setState({ [name]: [value] });
@@ -62,7 +117,7 @@ class Home extends React.Component {
       return (
         product.productName
           .toLowerCase()
-          .includes(this.state.searchProductName) &&
+          .includes(this.state.searchProductName.toString().toLowerCase()) &&
         product.category.includes(this.state.searchCategory)
       );
     });
@@ -89,7 +144,7 @@ class Home extends React.Component {
               <div className="card-body">
                 <label htmlFor="searchProductName">Product Name</label>
                 <input
-                  onChange={this.inputSearchHandler}
+                  onChange={this.inputHandler}
                   type="text"
                   name="searchProductName"
                   className="form-control mb-3"
@@ -97,7 +152,7 @@ class Home extends React.Component {
                 <label htmlFor="searchCategory">Product Category</label>
                 <select
                   name="searchCategory"
-                  onChange={this.inputSearchHandler}
+                  onChange={this.inputHandler}
                   className="form-control"
                 >
                   <option value="">All Item</option>
@@ -118,13 +173,17 @@ class Home extends React.Component {
                 <strong>Sort Products</strong>
               </div>
               <div className="card-body">
-                <label htmlFor="searchCategory">Product Category</label>
-                <select name="searchCategory" className="form-control">
+                <label htmlFor="sortBy">Product Category</label>
+                <select
+                  onChange={this.inputHandler}
+                  name="sortBy"
+                  className="form-control"
+                >
                   <option value="">Default</option>
-                  <option value="">Lowest Price</option>
-                  <option value="">Highest Price</option>
-                  <option value="">A-Z</option>
-                  <option value="">Z-A</option>
+                  <option value="lowestPrice">Lowest Price</option>
+                  <option value="highestPrice">Highest Price</option>
+                  <option value="az">A-Z</option>
+                  <option value="za">Z-A</option>
                 </select>
               </div>
             </div>
