@@ -209,14 +209,19 @@ class Admin extends React.Component {
   };
 
   deleteHandler = (event) => {
-    Axios.delete(`${API_URL}/products/${event.target.value}`)
-      .then((result) => {
-        alert("Delete product berhasil");
-        this.fetchProduct();
-      })
-      .catch((err) => {
-        alert("Terjadi kesalahan di server");
-      });
+    const confirmDelete = window.confirm("Yakin delete product?");
+    if (confirmDelete) {
+      Axios.delete(`${API_URL}/products/${event.target.value}`)
+        .then((result) => {
+          alert("Delete product berhasil");
+          this.fetchProduct();
+        })
+        .catch((err) => {
+          alert("Terjadi kesalahan di server");
+        });
+    } else {
+      alert("Delete product dibatalkan");
+    }
   };
 
   cancleHandler = () => {
