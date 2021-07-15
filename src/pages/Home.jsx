@@ -73,27 +73,6 @@ class Home extends React.Component {
     });
   }
 
-  // renderProducts = () => {
-  //   const beginningIndex = (this.state.page - 1) * this.state.itemPerPage;
-  //   let rawData = [...this.state.filteredProductList];
-  //   switch (this.state.sortBy) {
-  //     case "lowestPrice":
-  //       rawData.sort((a, b) => a.index - b.index);
-  //       break;
-
-  //     default:
-  //       rawData = [...this.state.filteredProductList];
-  //       break;
-  //   }
-  //   const currentData = rawData.slice(
-  //     beginningIndex,
-  //     beginningIndex + this.state.itemPerPage
-  //   );
-  //   return currentData.map((val) => {
-  //     return <ProductCard productData={val} />;
-  //   });
-  // };
-
   nextPagehandler = () => {
     if (this.state.page < this.state.maxPage) {
       this.setState({ page: this.state.page + 1 });

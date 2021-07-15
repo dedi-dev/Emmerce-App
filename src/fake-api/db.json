@@ -42,28 +42,18 @@
   "transaction": [],
   "products": [
     {
-      "id": 1,
-      "productName": "Kaos Hitam Polos",
-      "price": 25000,
-      "productImage": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F83%2Fe1%2F83e1bf22cd2015bc509296ef1e2d5a4d29b70b7a.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B4%5D&call=url[file:/product/main]",
-      "description": "Ini barang bagus lho.",
-      "category": "T-shirt"
-    },
-    {
-      "id": 2,
-      "productName": "Kaos Putih Bagus",
-      "price": 30000,
-      "productImage": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2F71%2Ff4%2F71f4f60422b3284c9727d91905ace2624e7bc15d.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
-      "description": "Ini barang bagus banget lho.",
-      "category": "T-shirt"
-    },
-    {
-      "id": 3,
-      "productName": "Kaos Grey Polos",
-      "price": 28000,
+      "productName": [
+        "Kaos Grey Polos Bagus"
+      ],
+      "price": 30010,
       "productImage": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd4%2F94%2Fd4943bd9b75c08e11cbe6fc95ff38bf7f2caaf14.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
-      "description": "Ini barang bagus lho.",
-      "category": "T-shirt"
+      "description": [
+        "Ini barang sangat bagus lho."
+      ],
+      "category": [
+        "T-shirt"
+      ],
+      "id": 3
     },
     {
       "id": 4,
@@ -80,14 +70,6 @@
       "productImage": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fa4%2F85%2Fa485acc9e80140eb9b257d95f1e0b75303a8f75f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
       "description": "Ini barang bagus lho.",
       "category": "T-shirt"
-    },
-    {
-      "id": 6,
-      "productName": "Celana Hitam Bagus",
-      "price": 80000,
-      "productImage": "https://images.ctfassets.net/od02wyo8cgm5/7yuxL1LSqnW4hQdL00nRRG/3e6fe2ec30edbd722a16568deba1a9a6/running_pants-ss20-black-m-g1.png?w=500&h=500&fl=progressive&q=91&bg=rgb:f7f7f7&fm=jpg",
-      "description": "Ini barang bagus banget lho.",
-      "category": "Pants"
     },
     {
       "id": 7,
@@ -176,6 +158,22 @@
       "productImage": "https://www.jakartanotebook.com/images/products/95/63/28606/2/279/kacamata-anti-blue-light-radiasi-komputer-black-5.jpg",
       "description": "Ini barang bagus banget lho.",
       "category": "Accesories"
+    },
+    {
+      "productName": [
+        "Dad Jeans2"
+      ],
+      "price": 424950,
+      "productImage": [
+        "https://storage.sg.content-cdn.io/cdn-cgi/image/width=490,height=650,quality=75,format=auto/in-resources/ff5c6da1-2d74-4846-96c9-ccd65d766244/Images/ProductImages/Source/Levis-Dad-Jeans-797700007_01_Front.jpg"
+      ],
+      "description": [
+        "Dad Jeans. Klasik dan apik. Fit yang terinspirasi tahun 90-an ini santai namun menyanjung. PRODUCT CODE: 797700007"
+      ],
+      "category": [
+        "Pants"
+      ],
+      "id": 20
     }
   ],
   "carts": []
