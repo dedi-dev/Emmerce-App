@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import MyNavbar from "./components/MyNavbar";
-
 import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import Home from "./pages/Home";
@@ -14,6 +13,7 @@ import ProductDetail from "./pages/ProductDetail";
 import ProductCard from "./components/ProductCard";
 import { connect } from "react-redux";
 import { userKeepLogin, checkStorage } from "./redux/actions/user";
+import { getCartData } from "./redux/actions/cart";
 
 class App extends React.Component {
   componentDidMount() {
@@ -22,6 +22,7 @@ class App extends React.Component {
     if (userLocalStorage) {
       const userData = JSON.parse(userLocalStorage);
       this.props.userKeepLogin(userData);
+      this.props.getCartData(userData.id);
     } else {
       this.props.checkStorage();
     }
@@ -38,7 +39,10 @@ class App extends React.Component {
             <Route component={Admin} path="/admin" />
             <Route component={Cart} path="/cart" />
             <Route component={History} path="/history" />
-            <Route component={ProductDetail} path="/product-detail" />
+            <Route
+              component={ProductDetail}
+              path="/product-detail/:productId"
+            />
             <Route component={ProductCard} path="/product-card" />
             <Route component={Home} path="/" />
           </Switch>
@@ -59,6 +63,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   userKeepLogin,
   checkStorage,
+  getCartData,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

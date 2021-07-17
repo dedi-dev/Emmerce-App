@@ -95,6 +95,7 @@ class Home extends React.Component {
     const filteredProductList = this.state.productList.filter((product) => {
       return (
         product.productName
+          .toString()
           .toLowerCase()
           .includes(this.state.searchProductName.toString().toLowerCase()) &&
         product.category.includes(this.state.searchCategory)

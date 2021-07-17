@@ -12,6 +12,7 @@
       "username": "edot",
       "email": "email.com",
       "password": "Edhot111",
+      "role": "admin",
       "id": 2
     },
     {
@@ -42,17 +43,11 @@
   "transaction": [],
   "products": [
     {
-      "productName": [
-        "Kaos Grey Polos Bagus"
-      ],
+      "productName": "Kaos Grey Polos Bagus",
       "price": 30010,
       "productImage": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd4%2F94%2Fd4943bd9b75c08e11cbe6fc95ff38bf7f2caaf14.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
-      "description": [
-        "Ini barang sangat bagus lho."
-      ],
-      "category": [
-        "T-shirt"
-      ],
+      "description": "Ini barang sangat bagus lho.",
+      "category": "T-shirt",
       "id": 3
     },
     {
@@ -176,5 +171,33 @@
       "id": 20
     }
   ],
-  "carts": []
+  "carts": [
+    {
+      "userId": 2,
+      "productId": 3,
+      "price": 30010,
+      "productName": "Kaos Grey Polos Bagus",
+      "productImage": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fd4%2F94%2Fd4943bd9b75c08e11cbe6fc95ff38bf7f2caaf14.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5Bmen_tshirtstanks_shortsleeve%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B1%5D&call=url[file:/product/main]",
+      "quantity": 7,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "productId": 12,
+      "price": 15000,
+      "productName": "Topi Jaxon Putih",
+      "productImage": "https://hatroom.eu/images/normal/toyosafarisvart1.jpg",
+      "quantity": 3,
+      "id": 4
+    },
+    {
+      "userId": 2,
+      "productId": 11,
+      "price": 20000,
+      "productName": "Topi Garda",
+      "productImage": "https://hatroom.eu/images/normal/hoghatt2.jpg",
+      "quantity": 2,
+      "id": 5
+    }
+  ]
 }
