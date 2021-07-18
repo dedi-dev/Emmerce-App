@@ -19,9 +19,7 @@ class MyNavbar extends React.Component {
     return (
       <div>
         <Navbar color="light" light>
-          <NavbarBrand>
-            <Link to="/">Emmerce</Link>
-          </NavbarBrand>
+          <NavbarBrand href="/">Emmerce</NavbarBrand>
           <Nav>
             {this.props.userGlobal.username ? (
               <>
@@ -50,7 +48,7 @@ class MyNavbar extends React.Component {
                     ) : null}
                     <DropdownItem divider />
                     <DropdownItem onClick={this.props.logoutUser}>
-                      Logout
+                      <Link to="/login">Logout</Link>
                     </DropdownItem>
                   </DropdownMenu>
                 </UncontrolledDropdown>

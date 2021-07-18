@@ -121,7 +121,7 @@ class Cart extends React.Component {
 
   render() {
     return (
-      <div className="p-2 text-center">
+      <div className="p-5 text-center">
         <h1>Cart</h1>
         <div className="row">
           <div className="col-9 text-center">
