@@ -15,7 +15,7 @@ const reducer = (state = init_state, action) => {
     case "USER_ERROR":
       return { ...state, errMsg: action.payload };
     case "USER_LOGOUT":
-      return { ...init_state, storageIsChecked: true };
+      return { state, storageIsChecked: true };
     case "CHECK_STORAGE":
       return { ...state, storageIsChecked: true };
     default:

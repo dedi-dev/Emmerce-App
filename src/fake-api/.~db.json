@@ -355,15 +355,5 @@
       "id": 20
     }
   ],
-  "carts": [
-    {
-      "userId": 2,
-      "productId": 7,
-      "price": 100000,
-      "productName": "Celana Keren",
-      "productImage": "https://static.footshop.com/253731/51825.jpg",
-      "quantity": 3,
-      "id": 2
-    }
-  ]
+  "carts": []
 }
