@@ -1,7 +1,8 @@
 # Emmerce App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).  
-Emmerce App is a Web App E-Commerce for shopping
+## Emmerce App is a Web App E-Commerce for shopping.
+
+## Technology for this App are ReactJS, Redux, Axios.
 
 ## 1. Feature Register
 
